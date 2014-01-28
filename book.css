@@ -1,0 +1,164 @@
+/* 导入书名字体 */
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/* reset */
+* {margin: 0; padding: 0;}
+
+/* body元素占据100%屏幕，线性渐变背静才能全部填充，窗口放大缩小能自适应 */
+html, body {min-height: 100%;}
+
+body {
+	background: #544; /* IE备用颜色 */
+	/* 一种好看的渐变 */
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#544), to(#465));
+	background: -webkit-linear-gradient(#544, #465);
+	background: -moz-linear-gradient(#544, #465);
+	background: -o-linear-gradient(#544, #465);
+	background: linear-gradient(#544, #465);
+}
+
+.frame {
+	/* 书封面图片尺寸 */
+	width: 480px;
+	height: 328px;
+
+	margin: 70px auto;
+	/* 透视距离不能放在body内，否则会出现鼠标移动偏差，不断触发动作 */
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+}
+
+.frame a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	/* 书封面图片 */
+	background: url("test-1.png");
+	/* 使子元素保留其3D转换： */
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	/* 过渡时间 */
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.frame a:hover {
+	/* 书本翻转75° */
+	-webkit-transform: rotateX(80deg);
+	-moz-transform: rotateX(80deg);
+	-ms-transform: rotateX(80deg);
+	-o-transform: rotateX(80deg);
+	transform: rotateX(80deg);
+	/* 对齐底部翻转 */
+	-webkit-transform-origin: bottom;
+	-moz-transform-origin: bottom;
+	-ms-transform-origin: bottom;
+	-o-transform-origin: bottom;
+	transform-origin: bottom;
+}
+
+.frame a:after {
+	content: '';
+	/* 书脊图片尺寸 */
+	width: 480px; height: 56px;
+	/* 渐变光线，增强实物感 */
+	background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.65)), url("test-2.png");
+	position: absolute;
+	left: 0; top: 100%;
+	/* 对齐顶部旋转 */
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	-ms-transform: rotateX(-90deg);
+	-o-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: top;
+	-moz-transform-origin: top;
+	-ms-transform-origin: top;
+	-o-transform-origin: top;
+	transform-origin: top;
+}
+
+.frame a span {
+	color: white;
+	text-transform: uppercase;
+	width: 100%;
+	text-align: center;
+	/* 行距与书脊宽度一致 */
+	font: bold 24px/56px Montserrat;
+	letter-spacing: 0.7em;
+	text-shadow: 2px 2px 2px black;
+	/* 与封面元素下边对齐 */
+	position: absolute;
+	top: 100%;
+	/* 翻转-90° */
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	-ms-transform: rotateX(-90deg);
+	-o-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	/* 对齐顶部翻转 */
+	-webkit-transform-origin: top;
+	-moz-transform-origin: top;
+	-ms-transform-origin: top;
+	-o-transform-origin: top;
+	transform-origin: top;
+	/* 覆盖在书脊上面 */
+	z-index: 1;
+}
+
+.frame a:before {
+	content: '';
+	position: absolute;
+	left: 0; top 0;
+	width: 100%; height: 100%;
+	/* 创建投影 */
+	background: rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 150px 80px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0 150px 80px rgba(0,0,0,0.5);
+	box-shadow: 0 0 150px 80px rgba(0,0,0,0.5);
+	opacity: 0.4;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+
+	-webkit-transform: rotateX(90deg) translateZ(-80px) scale(0.7);
+	-moz-transform: rotateX(90deg) translateZ(-80px) scale(0.7);
+	-ms-transform: rotateX(90deg) translateZ(-80px) scale(0.7);
+	-o-transform: rotateX(90deg) translateZ(-80px) scale(0.7);
+	transform: rotateX(90deg) translateZ(-80px) scale(0.7);
+	-webkit-transform-origin: bottom;
+	-moz-transform-origin: bottom;
+	-ms-transform-origin: bottom;
+	-o-transform-origin: bottom;
+	transform-origin: bottom;
+}
+
+.frame:hover a:before {
+	opacity: 1;
+	box-shadow: 0 10px 25px 25px rgba(0,0,0,0.5);
+	-webkit-transform: rotateX(0) translateZ(-55px) scale(0.85);
+	-moz-transform: rotateX(0) translateZ(-55px) scale(0.85);
+	-ms-transform: rotateX(0) translateZ(-55px) scale(0.85);
+	-o-transform: rotateX(0) translateZ(-55px) scale(0.85);
+	transform: rotateX(0) translateZ(-55px) scale(0.85);
+}
+
+
+
+
+
+
+
+
+
+
+
+
